@@ -62,6 +62,7 @@ class ScrapeHyattHotelsCommand extends Command
 //            'headers' => [
 //                'Connection' => 'close',
 //                'User-Agent' => UserAgent::OSX_DESKTOP,
+//                'cookie' => 'tkrm_alpekz_s1.3-ssn=03qoODHVjGQWOEollIX9z2HCsKloVQFFFLRL8kfSFIOwLpovYzF315a58Zf10CWRvNZCngiG2mguhXW6xOJfaLEQVVIdfu2Tkgv5QYKrsi4cvJqFcQ5Qoj6uI8JUTX7yJ9Hv69dMLP23xqxzTXUl4GI',
 //            ],
 //        ];
 //        $this->spider->crawl($options);

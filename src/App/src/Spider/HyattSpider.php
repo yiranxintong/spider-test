@@ -38,11 +38,22 @@ class HyattSpider implements LoggerAwareInterface
             'slowMo' => 500,
             'devtools' => $options['devtools'],
             'defaultViewport' => ['width' => 1200, 'height' => 900],
+            'ignoreDefaultArgs' => [
+                '--enable-automation',
+            ],
         ]);
 
         $page = $browser->newPage();
+        $page->setUserAgent($options['headers']['User-Agent']);
+        $page->setExtraHTTPHeaders([
+            'cookie' => 'tkrm_alpekz_s1.3-ssn=03qoODHVjGQWOEollIX9z2HCsKloVQFFFLRL8kfSFIOwLpovYzF315a58Zf10CWRvNZCngiG2mguhXW6xOJfaLEQVVIdfu2Tkgv5QYKrsi4cvJqFcQ5Qoj6uI8JUTX7yJ9Hv69dMLP23xqxzTXUl4GI'
+        ]);
+
         try {
-            $page->tryCatch->goto('https://www.baidu.com');
+            $page->tryCatch->goto('https://www.hyatt.com/zh-CN/search/%E4%B8%8A%E6%B5%B7?checkinDate=2022-03-09&checkoutDate=2022-03-10&rooms=1&adults=1&kids=0&rate=Standard&rateFilter=woh', [
+                'timeout'      => 240000, // In milliseconds
+                'idle_timeout' => 240000,
+            ]);
             $this->log('do something');
         } catch (Node\Exception $exception) {
             // Handle the exception...
