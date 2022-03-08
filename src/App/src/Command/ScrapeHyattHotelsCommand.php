@@ -56,6 +56,16 @@ class ScrapeHyattHotelsCommand extends Command
         ];
         $hotels = $this->spider->reveal($options);
 
+//        $options = [
+//            'max_duration' => 60,
+//            'timeout' => 30,
+//            'headers' => [
+//                'Connection' => 'close',
+//                'User-Agent' => UserAgent::OSX_DESKTOP,
+//            ],
+//        ];
+//        $this->spider->crawl($options);
+
         return Command::SUCCESS;
     }
 

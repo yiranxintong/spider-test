@@ -7,6 +7,8 @@ use App\Container\HttpHelper;
 use Nesk\Puphpeteer\Puppeteer;
 use Nesk\Rialto\Exceptions\Node;
 use Psr\Log\LoggerAwareInterface;
+use Symfony\Component\BrowserKit\HttpBrowser;
+use Symfony\Component\HttpClient\HttpClient;
 
 class HyattSpider implements LoggerAwareInterface
 {
@@ -49,6 +51,16 @@ class HyattSpider implements LoggerAwareInterface
 
         $browser->close();
 
+        return [];
+    }
+
+    public function crawl(array $options) : array
+    {
+        $httpClient = HttpClient::create($options);
+        $browser = new HttpBrowser($httpClient);
+
+        $crawler = $browser->request('GET', 'https://www.hyatt.com/zh-CN/search/%E5%8C%97%E4%BA%AC?checkinDate=2022-03-09&checkoutDate=2022-03-10&rooms=1&adults=1&kids=0&rate=Standard&rateFilter=woh');
+        $html = $crawler->html();
         return [];
     }
 }
