@@ -44,6 +44,8 @@
     },
     "require": {
         "php": "^7.4 || ~8.0.0 || ~8.1.0",
+        "ext-iconv": "*",
+        "ext-json": "*",
         "ext-redis": "*",
         "composer/package-versions-deprecated": "^1.10.99",
         "laminas/laminas-component-installer": "^2.6",
@@ -58,6 +60,8 @@
         "mezzio/mezzio-laminasviewrenderer": "^2.2",
         "mezzio/mezzio-tooling": "2.4",
         "nesk/puphpeteer": "^2.0",
+        "php-http/guzzle6-adapter": "^2.0",
+        "psr/http-client": "^1.0",
         "symfony/console": "^5.4"
     },
     "require-dev": {

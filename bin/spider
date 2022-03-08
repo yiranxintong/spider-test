@@ -15,7 +15,7 @@ $container = require 'config/container.php';
 /** @var Application $application */
 $application = $container->get(Application::class);
 $commandMap = [
-        \App\Command\ScrapeMarriottHotelsCommand::COMMAND_NAME => \App\Command\ScrapeMarriottHotelsCommand::class,
+        \App\Command\ScrapeHyattHotelsCommand::COMMAND_NAME => \App\Command\ScrapeHyattHotelsCommand::class,
 ];
 $commandLoader = new ContainerCommandLoader($container, $commandMap);
 $application->setCommandLoader($commandLoader);

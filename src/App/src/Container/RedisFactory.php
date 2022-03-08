@@ -17,7 +17,7 @@ class RedisFactory
         if (!empty($config['password'])) {
             $redis->auth($config['password']);
         }
-        $redis->select($config['password']);
+        $redis->select($config['database']);
 
         return $redis;
     }
