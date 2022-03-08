@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+// application.php
+
+chdir(dirname(__DIR__));
+require 'vendor/autoload.php';
+
+use Psr\Container\ContainerInterface;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
+
+// ... register commands
+/** @var ContainerInterface $container */
+$container = require 'config/container.php';
+/** @var Application $application */
+$application = $container->get(Application::class);
+$commandMap = [
+        \App\Command\ScrapeMarriottHotelsCommand::COMMAND_NAME => \App\Command\ScrapeMarriottHotelsCommand::class,
+];
+$commandLoader = new ContainerCommandLoader($container, $commandMap);
+$application->setCommandLoader($commandLoader);
+
+$application->run();
